@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hangman Game</title>
+  <link rel="stylesheet" href="hm.css">
+</head>
+<body>
+  <header>
+  <h1>Hangman Game</h1>
+  </header>
+  <div id="hangmanImg">
+    <img alt="Hangman" src="/images/hangman101.jpg">
+  </div>
+  <p>Guess the word by selecting letters.</p>
+
+  <div id="gameContainer">
+    <div id="wordDisplay"></div>
+    <div id="guessesLeft">Guesses left: 6</div>
+    <div id="clue"></div>
+    <input type="text" id="guessInput" placeholder="Guess a letter">
+    <button id="guessButton">Guess</button>
+  </div>
+
+  <div id="hangmanImg">
+    
+  </div>
+  <video autoplay loop muted class="background-video">
+    <source src="/images/y2mate.is - STICK MAN JUMP-4EAYIspGcfI-480pp-1693325764.mp4" type="video/mp4">
+</video>
+  
+  <script src="/AhmedAli/hm.js"></script>
+</body>
+</html>
