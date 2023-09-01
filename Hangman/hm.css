@@ -10,7 +10,7 @@ body{
     height: 100px;
 
 }
-#guessButton:hover {
+#guessButton:hover, #reset:hover {
     background-color: green;
   }
 
