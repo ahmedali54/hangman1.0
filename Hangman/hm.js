@@ -16,7 +16,21 @@ const words = [
   ];
     let selectedWord = words[Math.floor(Math.random() * words.length)].word;
     
-    // let wordSelected = selectedWord;
+    function resetGame() {
+      selectedWord = words[Math.floor(Math.random() * words.length)].word;
+      guessedLetters = [];
+      guessesLeft = 6;
+      wrongGuesses = 0;
+      displayWord = '';
+      for (let i = 0; i < selectedWord.length; i++) {
+        displayWord += '_ ';
+      }
+      wordDisplay.textContent = displayWord;
+      guessesLeftDisplay.textContent = `Guesses left: ${guessesLeft}`;
+      clueDisplay.textContent = '';
+    }
+    //   console.log('reset game');
+
     let guessedLetters = [];
     let guessesLeft = 6;
     let wrongGuesses = 0;
@@ -26,6 +40,8 @@ const words = [
     const clueDisplay = document.getElementById('clue');
     const guessInput = document.getElementById('guessInput');
     const guessButton = document.getElementById('guessButton');
+    const resetButton = document.getElementById('reset'); 
+
 
     // Initialize the word display with underscores
     let displayWord = '';
@@ -75,14 +91,24 @@ const words = [
 
         if (wrongGuesses === 3) {
             
-                clueDisplay.textContent = `Clue:${selectedWord.clue}`;
-              }
+          const selectedWordObj = words.find(wordObj => wordObj.word === selectedWord);
+          if (selectedWordObj) {
+              clueDisplay.textContent = `Clue: ${selectedWordObj.clue}`;
+          }
+      }
 
         if (guessesLeft === 0) {
           alert(`Game over! The word was "${selectedWord}".`);
         }
       }
-    });
+
+  
+  });
     
-    
+  resetButton.addEventListener('click', function () {
+    resetGame();
+  });
+  
+  // Initialize the game
+  resetGame();
     
